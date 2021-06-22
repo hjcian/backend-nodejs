@@ -7,6 +7,7 @@ DB_PASSWORD ?=test
 DB_DBNAME ?=test
 DB_COLLECTION ?=test
 DB_OPTIONS?=
+NIS_FRONTEND?=http://localhost:3000
 
 stop-mongo:
 	@echo "[`date`] Stopping previous launched Mongo [if any]"
@@ -30,12 +31,12 @@ run-dev-with-local-mongo:
 # should change to your testing server
 # DB_PORT is intentionally blank when using hostname to connect mongodb
 run-dev-with-cloud-mongo:DB_CONN_PREFIX=mongodb+srv
-run-dev-with-cloud-mongo:DB_HOST=<YOUR_CLOUD_MONGO_HOSTNAME>
+run-dev-with-cloud-mongo:DB_HOST=jubo-test-cluster.86tc7.mongodb.net
 run-dev-with-cloud-mongo:DB_PORT=
-run-dev-with-cloud-mongo:DB_USERNAME=<YOUR_CLOUD_MONGO_USERNAME>
-run-dev-with-cloud-mongo:DB_PASSWORD=<YOUR_CLOUD_MONGO_PASSWORD>
-run-dev-with-cloud-mongo:DB_DBNAME=<YOUR_CLOUD_MONGO_DBNAME>
-run-dev-with-cloud-mongo:DB_COLLECTION=<YOUR_CLOUD_MONGO_COLLECTION>
+run-dev-with-cloud-mongo:DB_USERNAME=jubo-tester
+run-dev-with-cloud-mongo:DB_PASSWORD=hqLGRPZDp43GfKq
+run-dev-with-cloud-mongo:DB_DBNAME=test
+run-dev-with-cloud-mongo:DB_COLLECTION=test
 run-dev-with-cloud-mongo:DB_OPTIONS=retryWrites=true&w=majority
 run-dev-with-cloud-mongo:APP_PORT=8888
 run-dev-with-cloud-mongo:
