@@ -1,0 +1,58 @@
+@host=localhost
+@port=3333
+
+
+### GET data
+GET http://{{host}}:{{port}}/patients HTTP/1.1
+
+### PATCH paitent's order
+@id=60d1dfed54f08642fedfc611
+PATCH http://{{host}}:{{port}}/patients/{{id}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "orders": [
+        "九點",
+        "該睡覺了"
+    ]
+}
+
+### POST test data
+POST http://{{host}}:{{port}}/patients HTTP/1.1
+Content-Type: application/json
+
+{
+    "data": [
+        {
+            "name": "amy",
+            "orders": [
+                "amy 超過120請施打8u",
+                "amy 9點要睡覺"
+            ]
+        },
+        {
+            "name": "bob",
+            "orders": [
+                "bob 超過999請施打8u"
+            ]
+        },
+        {
+            "name": "cyber",
+            "orders": [
+                "cyber 超過50請施打8u"
+            ]
+        },
+        {
+            "name": "david",
+            "orders": [
+                "david 超過90請施打8u"
+            ]
+        },
+        {
+            "name": "ema",
+            "orders": [
+                "ema 超過1請施打8u"
+            ]
+        }
+    ]
+}
