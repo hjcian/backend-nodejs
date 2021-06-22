@@ -1,6 +1,7 @@
 # backend-nodejs
 
 - [backend-nodejs](#backend-nodejs)
+  - [安裝套件](#安裝套件)
   - [運行開發環境](#運行開發環境)
     - [運行後端服務搭配本地端 mongodb](#運行後端服務搭配本地端-mongodb)
     - [運行後端服務搭配雲端 mongodb](#運行後端服務搭配雲端-mongodb)
@@ -11,13 +12,15 @@
 
 此 repo 為支援 [nis-reactjs](https://github.com/hjcian/nis-reactjs) 的後端服務
 
+## 安裝套件
+`npm i`
 ## 運行開發環境
+
 ### 運行後端服務搭配本地端 mongodb
 1. 先使用 Docker 運行 mongodb - `make restart-mongo`
 2. 再運行服務 - `make run-dev-with-local-mongo`
 
 ### 運行後端服務搭配雲端 mongodb
-
 1. 先擁有建立一個 cloud mongodb 叢集 ([MongoDB Atlas](https://www.mongodb.com/cloud/atlas))，取得連線資訊
 2. 修改 [Makefile](./Makefile) 內 target `run-dev-with-cloud-mongo` 中描述的各項 `<YOUR_CLOUD_MONGO_******>` 的欄位成欲連接的 cloud mongodb 的連線資訊
 3. 再運行服務 - `run-dev-with-cloud-mongo`
