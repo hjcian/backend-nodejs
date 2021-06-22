@@ -21,6 +21,6 @@ mongo:
 restart-mongo: stop-mongo
 restart-mongo: mongo
 
-run-dev:PORT=3333
-run-dev:
+run-local-dev:PORT=3333
+run-local-dev:
 	@npm run watch:dev

@@ -9,9 +9,6 @@ const DB_OPTIONS = process.env.DB_OPTIONS || ''
 const DB_DBNAME = process.env.DB_DBNAME || 'test'
 const DB_COLLECTION = process.env.DB_COLLECTION || 'test'
 
-// const uri = 'mongodb+srv://maxcian:2TY2cG3qDfQTfXCl@jubo-test-cluster.86tc7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-// const client = new MongoClient(URI, { useNewUrlParser: true, useUnifiedTopology: true })
-
 class Repository {
   static async open () {
     if (this.db) {
