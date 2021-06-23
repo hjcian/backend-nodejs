@@ -6,6 +6,7 @@
     - [運行後端服務搭配本地端 mongodb](#運行後端服務搭配本地端-mongodb)
     - [運行後端服務搭配雲端 mongodb](#運行後端服務搭配雲端-mongodb)
     - [上傳測試用資料至資料庫](#上傳測試用資料至資料庫)
+  - [API](#api)
   - [Dev notes](#dev-notes)
     - [ES6 developing environment setup](#es6-developing-environment-setup)
     - [express issue](#express-issue)
@@ -28,6 +29,10 @@
 ### 上傳測試用資料至資料庫
 1. 首先[運行後端服務搭配本地端 mongodb](#運行後端服務搭配本地端-mongodb) 或 [運行後端服務搭配雲端 mongodb](#運行後端服務搭配雲端-mongodb)
 2. 發送 POST 請求至服務 - `make post-test-data`
+
+## API
+
+請參考 [api.http](./tool/api.http) 的範例
 
 ## Dev notes
 ### ES6 developing environment setup

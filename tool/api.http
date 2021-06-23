@@ -6,16 +6,13 @@
 ### GET, without id, gets the list of patients
 GET http://{{host}}:{{port}}/patients HTTP/1.1
 
-### GET, with patient id, gets single patient's whole information
-GET http://{{host}}:{{port}}/patients/{{id}} HTTP/1.1
-
 
 ### GET, with patient id, gets single patient's partial information, by specifying fields in query parameter
 GET http://{{host}}:{{port}}/patients/{{id}}?fields={{fields}} HTTP/1.1
 
 
-### PUT replaces an existing paitent's orders
-PUT http://{{host}}:{{port}}/patients/{{id}} HTTP/1.1
+### PATCH replaces an existing paitent's orders
+PATCH http://{{host}}:{{port}}/patients/{{id}} HTTP/1.1
 Content-Type: application/json
 
 {
