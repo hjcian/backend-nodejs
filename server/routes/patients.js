@@ -18,8 +18,7 @@ router.get(
     const cursor = await db.find({}, {
       projection: {
         id: 1,
-        name: 1,
-        orders: 1
+        name: 1
       }
     })
     const rawData = await cursor.toArray()
@@ -31,6 +30,32 @@ router.get(
       }
     })
     res.json(respData)
+  })
+)
+
+router.get(
+  '/:id',
+  async (req, res, next) => {
+    if (req.params.id === '' || req.params.id === null || req.params.id === undefined) {
+      res.status(400).json({ error: 'need patient id' })
+      return
+    }
+    next()
+  },
+  asyncHandler(async (req, res, next) => {
+    const { id } = req.params
+    const { fields: fieldsText } = req.query
+    const fields = fieldsText && fieldsText.split(',')
+
+    const db = await repo.open()
+    const filter = { _id: ObjectId(id) }
+    const projection = fields ? Object.assign({ }, ...fields.map((f) => ({ [f]: 1 }))) : {}
+    const result = await db.findOne(filter, { projection })
+    if (result === null) {
+      res.status(404).json({ error: 'patient not found' })
+    }
+
+    res.json(result)
   })
 )
 
@@ -56,12 +81,15 @@ router.patch(
       name ? { name } : null,
       orders ? { orders } : null)
 
-    // try {
     const db = await repo.open()
     const filter = { _id: ObjectId(id) }
     const updateDocument = { $set: data }
     const result = await db.findOneAndUpdate(filter, updateDocument)
-    const { ok } = result
+    const { lastErrorObject, ok } = result || {}
+    const { updatedExisting } = lastErrorObject || false
+    if (!updatedExisting) {
+      res.status(404).json({ error: 'patient not found' })
+    }
     res.json({ ok })
   })
 )
